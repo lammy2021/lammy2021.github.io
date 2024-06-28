@@ -16,22 +16,23 @@
   <meta name="author" content="Lammy">
   <meta name="keywords" content="">
   
-    <meta name="description" content="分支结构if(  )里面的表达式的结果必须是布尔型 If语句例题判断3个坐标是否可以构建成三角形 1234567891011121314151617181920212223242526272829303132333435363738394041package javaapp3;import java.io.*;public class Javaapp3 &#123;	public static v">
+    <meta name="description" content="重现代码12345678910111213141516171819202122232425262728293031import java.io.*;public class Main &#123;    public static void main(String[] args) throws IOException &#123;        BufferedReader buf &#x3D; new B">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java课堂笔记 第四章 If语句">
-<meta property="og:url" content="https://lammy2021.github.io/2024/03/11/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E5%9B%9B%E7%AB%A0%20If%E8%AF%AD%E5%8F%A5/index.html">
+<meta property="og:title" content="Java-Debug 读取一行的数据与逐行读取">
+<meta property="og:url" content="https://lammy2021.github.io/2024/03/27/Java/Java-Debug%20%E8%AF%BB%E5%8F%96%E4%B8%80%E8%A1%8C%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%8E%E9%80%90%E8%A1%8C%E8%AF%BB%E5%8F%96/index.html">
 <meta property="og:site_name" content="MENGYUN&#39;s Blog">
-<meta property="og:description" content="分支结构if(  )里面的表达式的结果必须是布尔型 If语句例题判断3个坐标是否可以构建成三角形 1234567891011121314151617181920212223242526272829303132333435363738394041package javaapp3;import java.io.*;public class Javaapp3 &#123;	public static v">
+<meta property="og:description" content="重现代码12345678910111213141516171819202122232425262728293031import java.io.*;public class Main &#123;    public static void main(String[] args) throws IOException &#123;        BufferedReader buf &#x3D; new B">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2024-03-11T08:02:00.000Z">
-<meta property="article:modified_time" content="2024-06-28T11:30:46.796Z">
+<meta property="article:published_time" content="2024-03-27T11:50:00.000Z">
+<meta property="article:modified_time" content="2024-06-28T11:30:31.828Z">
 <meta property="article:author" content="Lammy">
 <meta property="article:tag" content="Java">
+<meta property="article:tag" content="Debug">
 <meta name="twitter:card" content="summary_large_image">
   
   
   
-  <title>Java课堂笔记 第四章 If语句 - MENGYUN&#39;s Blog</title>
+  <title>Java-Debug 读取一行的数据与逐行读取 - MENGYUN&#39;s Blog</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -201,7 +202,7 @@
       <div class="banner-text text-center fade-in-up">
         <div class="h2">
           
-            <span id="subtitle" data-typed-text="Java课堂笔记 第四章 If语句"></span>
+            <span id="subtitle" data-typed-text="Java-Debug 读取一行的数据与逐行读取"></span>
           
         </div>
 
@@ -212,8 +213,8 @@
     
       <span class="post-meta">
         <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-        <time datetime="2024-03-11 16:02" pubdate>
-          2024年3月11日 下午
+        <time datetime="2024-03-27 19:50" pubdate>
+          2024年3月27日 晚上
         </time>
       </span>
     
@@ -225,7 +226,7 @@
         <i class="iconfont icon-chart"></i>
         
           <!-- compatible with older versions-->
-          180 字
+          313 字
         
       </span>
     
@@ -237,7 +238,7 @@
         
         
           <!-- compatible with older versions-->
-          2 分钟
+          3 分钟
         
       </span>
     
@@ -274,14 +275,15 @@
       <div class="container nopadding-x-md" id="board-ctn">
         <div id="board">
           <article class="post-content mx-auto">
-            <h1 id="seo-header">Java课堂笔记 第四章 If语句</h1>
+            <h1 id="seo-header">Java-Debug 读取一行的数据与逐行读取</h1>
             
             
               <div class="markdown-body">
                 
-                <h1 id="分支结构"><a href="#分支结构" class="headerlink" title="分支结构"></a>分支结构</h1><p>if(  )里面的表达式的结果必须是布尔型</p>
-<h2 id="If语句例题"><a href="#If语句例题" class="headerlink" title="If语句例题"></a>If语句例题</h2><p>判断3个坐标是否可以构建成三角形</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> javaapp3;<br><span class="hljs-keyword">import</span> java.io.*;<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Javaapp3</span> &#123;<br><br>	<span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException &#123;<br><br>        <span class="hljs-type">double</span> x1,y1;<br>        <span class="hljs-type">double</span> x2,y2;<br>        <span class="hljs-type">double</span> x3,y3;<br>        <br>        <span class="hljs-type">BufferedReader</span> <span class="hljs-variable">buf</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BufferedReader</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">InputStreamReader</span>(System.in));<br><br>        String str=buf.readLine();<br>        x1=Double.parseDouble(str);<br>        str=buf.readLine();<br>        y1=Double.parseDouble(str);<br>        str=buf.readLine();<br>        x2=Double.parseDouble(str);<br>        str=buf.readLine();<br>        y2=Double.parseDouble(str);<br>        str=buf.readLine();<br>        x3=Double.parseDouble(str);<br>        str=buf.readLine();<br>        y3=Double.parseDouble(str);<br>        <br>        <span class="hljs-type">double</span> d1,d2,d3;<br>        d1=Math.sqrt(Math.pow((x1-x2),<span class="hljs-number">2</span>)+Math.pow((y1-y2),<span class="hljs-number">2</span>));<br>        d2=Math.sqrt(Math.pow((x1-x3),<span class="hljs-number">2</span>)+Math.pow((y1-y3),<span class="hljs-number">2</span>));<br>        d3=Math.sqrt(Math.pow((x3-x2),<span class="hljs-number">2</span>)+Math.pow((y3-y2),<span class="hljs-number">2</span>));<br>        <br>        <span class="hljs-keyword">if</span>(d1+d2&gt;d3&amp;&amp;d2+d3&gt;d1&amp;&amp;d1+d3&gt;d2)<br>        &#123;<br>        	System.out.println(<span class="hljs-string">&quot;OK&quot;</span>);<br>        &#125;<br>        <span class="hljs-keyword">else</span><br>        &#123;<br>        	System.out.println(<span class="hljs-string">&quot;NO&quot;</span>);<br>        &#125;<br>    &#125;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+                <h1 id="重现代码"><a href="#重现代码" class="headerlink" title="重现代码"></a>重现代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.io.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException &#123;<br>        <span class="hljs-type">BufferedReader</span> <span class="hljs-variable">buf</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BufferedReader</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">InputStreamReader</span>(System.in));<br>        <span class="hljs-type">int</span> year, month, day;<br>        <span class="hljs-type">String</span> <span class="hljs-variable">str</span> <span class="hljs-operator">=</span> buf.readLine();<br>        year = Integer.parseInt(str);<br>        str = buf.readLine();<br>        month = Integer.parseInt(str);<br>        str = buf.readLine();<br>        day = Integer.parseInt(str);<br><br>        <span class="hljs-type">int</span> <span class="hljs-variable">total</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><br>        <span class="hljs-type">int</span>[] pinDaysInMonth = &#123;<span class="hljs-number">31</span>, <span class="hljs-number">28</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>&#125;;<br>				<span class="hljs-type">int</span>[] runDaysInMonth = &#123;<span class="hljs-number">31</span>, <span class="hljs-number">29</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>&#125;;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; month - <span class="hljs-number">1</span>; i++) &#123;<br>					<span class="hljs-keyword">if</span>(year%<span class="hljs-number">4</span>==<span class="hljs-number">0</span>)&#123;<br>							total += runDaysInMonth[i];<br>					&#125;<br>					<span class="hljs-keyword">else</span>&#123;<br>						  total +=pinDaysInMonth[i];<br>					&#125;<br>        &#125;<br><br>        total += day;<br><br>        System.out.println(<span class="hljs-string">&quot;Total days: &quot;</span> + total);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这段代码的数据读取是逐行读取导致清览题库的检测数据过不了，因为他的检测数据是<code>2021 11 10</code> 这样子的数据，导致输出<code>Exception in thread &quot;main&quot; java.lang.NumberFormatException: For input string: &quot;2021 11 10&quot; at java.base/java.lang.NumberFormatException.forInputString(NumberFormatException.java:65) at java.base/java.lang.Integer.parseInt(Integer.java:652) at java.base/java.lang.Integer.parseInt(Integer.java:770) at Main.main(Main.java:8)</code> </p>
+<h1 id="修改方式"><a href="#修改方式" class="headerlink" title="修改方式"></a>修改方式</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.io.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-keyword">class</span> <span class="hljs-title class_">Main</span> &#123;<br>    <span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">(String[] args)</span> <span class="hljs-keyword">throws</span> IOException &#123;<br>        <span class="hljs-type">BufferedReader</span> <span class="hljs-variable">buf</span> <span class="hljs-operator">=</span> <span class="hljs-keyword">new</span> <span class="hljs-title class_">BufferedReader</span>(<span class="hljs-keyword">new</span> <span class="hljs-title class_">InputStreamReader</span>(System.in));<br>        String[] inputs = buf.readLine().split(<span class="hljs-string">&quot; &quot;</span>);<br><br>        <span class="hljs-type">int</span> <span class="hljs-variable">year</span> <span class="hljs-operator">=</span> Integer.parseInt(inputs[<span class="hljs-number">0</span>]);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">month</span> <span class="hljs-operator">=</span> Integer.parseInt(inputs[<span class="hljs-number">1</span>]);<br>        <span class="hljs-type">int</span> <span class="hljs-variable">day</span> <span class="hljs-operator">=</span> Integer.parseInt(inputs[<span class="hljs-number">2</span>]);<br><br>        <span class="hljs-type">int</span> <span class="hljs-variable">total</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>;<br><br>        <span class="hljs-type">int</span>[] pinDaysInMonth = &#123;<span class="hljs-number">31</span>, <span class="hljs-number">28</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>&#125;;<br>				<span class="hljs-type">int</span>[] runDaysInMonth = &#123;<span class="hljs-number">31</span>, <span class="hljs-number">29</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>, <span class="hljs-number">30</span>, <span class="hljs-number">31</span>&#125;;<br>        <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> <span class="hljs-variable">i</span> <span class="hljs-operator">=</span> <span class="hljs-number">0</span>; i &lt; month - <span class="hljs-number">1</span>; i++) &#123;<br>					<span class="hljs-keyword">if</span>(year%<span class="hljs-number">4</span>==<span class="hljs-number">0</span>)&#123;<br>							total += runDaysInMonth[i];<br>					&#125;<br>					<span class="hljs-keyword">else</span>&#123;<br>						  total +=pinDaysInMonth[i];<br>					&#125;<br>        &#125;<br><br>        total += day;<br><br>        System.out.println(<span class="hljs-string">&quot;Total days: &quot;</span> + total);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
                 
               </div>
             
@@ -316,6 +318,8 @@
       
         <a href="/tags/Java/" class="print-no-link">#Java</a>
       
+        <a href="/tags/Debug/" class="print-no-link">#Debug</a>
+      
     </div>
   
 </div>
@@ -326,8 +330,8 @@
 
   <div class="license-box my-3">
     <div class="license-title">
-      <div>Java课堂笔记 第四章 If语句</div>
-      <div>https://lammy2021.github.io/2024/03/11/Java/Java课堂笔记 第四章 If语句/</div>
+      <div>Java-Debug 读取一行的数据与逐行读取</div>
+      <div>https://lammy2021.github.io/2024/03/27/Java/Java-Debug 读取一行的数据与逐行读取/</div>
     </div>
     <div class="license-meta">
       
@@ -339,7 +343,7 @@
       
         <div class="license-meta-item license-meta-date">
           <div>发布于</div>
-          <div>2024年3月11日</div>
+          <div>2024年3月27日</div>
         </div>
       
       
@@ -371,9 +375,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2024/03/12/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84/" title="Java课堂笔记 第五章 一维数组">
+                      <a href="/2024/04/16/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" title="Java课堂笔记 第六章 类与对象">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Java课堂笔记 第五章 一维数组</span>
+                        <span class="hidden-mobile">Java课堂笔记 第六章 类与对象</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
@@ -381,8 +385,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2024/03/11/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" title="Java课堂笔记 第三章 数据类型">
-                        <span class="hidden-mobile">Java课堂笔记 第三章 数据类型</span>
+                      <a href="/2024/03/19/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" title="Java课堂笔记 第五章 字符串与正则表达式">
+                        <span class="hidden-mobile">Java课堂笔记 第五章 字符串与正则表达式</span>
                         <span class="visible-mobile">下一篇</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
