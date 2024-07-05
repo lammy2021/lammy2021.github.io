@@ -1,0 +1,696 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=light>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="Lammy">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="前言 玛卡巴卡，这个C++有很多一部分的内容是基于C语言的，先把C语言炒热先吧，这个也就输入和输出是不太一样的格式，其他的都是很像的写法，看看就明白了，喵~  与C语言相似的点的复习123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chapter 1 基于C语言的C++">
+<meta property="og:url" content="https://lammy.top/2024/07/05/C++/Chapter%202%20%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%20C++/index.html">
+<meta property="og:site_name" content="MENGYUN&#39;s Blog">
+<meta property="og:description" content="前言 玛卡巴卡，这个C++有很多一部分的内容是基于C语言的，先把C语言炒热先吧，这个也就输入和输出是不太一样的格式，其他的都是很像的写法，看看就明白了，喵~  与C语言相似的点的复习123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-07-05T13:31:00.000Z">
+<meta property="article:modified_time" content="2024-07-05T14:20:11.861Z">
+<meta property="article:author" content="Lammy">
+<meta property="article:tag" content="C++">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>Chapter 1 基于C语言的C++ - MENGYUN&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lammy.top","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+
+  
+<meta name="generator" content="Hexo 7.2.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>MENGYUN&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://t.alcy.cc/fj/') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="Chapter 1 基于C语言的C++"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2024-07-05 21:31" pubdate>
+          2024年7月5日 晚上
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          1.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          11 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">Chapter 1 基于C语言的C++</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <blockquote>
+<p><strong>前言</strong></p>
+<p>玛卡巴卡，这个C++有很多一部分的内容是基于C语言的，先把C语言炒热先吧，这个也就输入和输出是不太一样的格式，其他的都是很像的写法，看看就明白了，喵~</p>
+</blockquote>
+<h1 id="与C语言相似的点的复习"><a href="#与C语言相似的点的复习" class="headerlink" title="与C语言相似的点的复习"></a>与C语言相似的点的复习</h1><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;iostream&gt;</span></span><br><span class="hljs-keyword">using</span> <span class="hljs-keyword">namespace</span> std; <span class="hljs-comment">//告诉编译器使用 std 命名空间。命名空间是 C++ 中一个相对新的概念。</span><br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">add</span><span class="hljs-params">(<span class="hljs-type">int</span> a, <span class="hljs-type">int</span> b)</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> a + b;<br>&#125;<br><br><span class="hljs-keyword">class</span> <span class="hljs-title class_">Person</span> &#123;<br><span class="hljs-keyword">public</span>:<br>    string name;<br>    <span class="hljs-type">int</span> age;<br>    <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">say</span><span class="hljs-params">()</span> </span>&#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;My name is &quot;</span> &lt;&lt; name &lt;&lt; <span class="hljs-string">&quot;, I&#x27;m &quot;</span> &lt;&lt; age &lt;&lt; <span class="hljs-string">&quot; years old.&quot;</span> &lt;&lt; endl;<br>    &#125;<br>&#125;;<br><br><span class="hljs-function"><span class="hljs-type">int</span> <span class="hljs-title">main</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-comment">//1.基本的输入输出</span><br>    <span class="hljs-type">int</span> a2;<br>    cin &gt;&gt; a2; <span class="hljs-comment">//从控制台输入一个整数，并将其赋值给变量 a2。</span><br>    cout &lt;&lt; a2 &lt;&lt; endl; <span class="hljs-comment">//将变量 a2 的值输出到控制台。</span><br><br>    cout &lt;&lt; <span class="hljs-string">&quot;Hello, World!&quot;</span> &lt;&lt; endl;<br>    std::cout &lt;&lt; <span class="hljs-string">&quot;Hello, World!&quot;</span> &lt;&lt; std::endl;<br>    <br>    <span class="hljs-comment">/* 区别：</span><br><span class="hljs-comment">     * cout &lt;&lt; &quot;Hello, World!&quot; &lt;&lt; endl;：这行代码使用了 using namespace std; 这个声明，所以可以直接使用 std 命名空间中的 cout 和 endl。</span><br><span class="hljs-comment">     * std::cout &lt;&lt; &quot;Hello, World!&quot; &lt;&lt; std::endl;：这行代码没有使用 using namespace std; 这个声明，而是在每次使用 std 命名空间中的元素时都显式地添加了 std:: 前缀。</span><br><span class="hljs-comment">     * 也就是说，如果不使用 using namespace std; 这个声明，那么在使用 cout 和 endl 时就必须在前面加上 std:: 前缀。</span><br><span class="hljs-comment">     */</span><br>    <br>    <span class="hljs-comment">//2.typedef 声明</span><br>    <span class="hljs-keyword">typedef</span> <span class="hljs-type">int</span> zhengxing; <span class="hljs-comment">//typedef 关键字，用于为数据类型取一个新的名字。</span><br>    zhengxing a = <span class="hljs-number">10</span>;<br>    cout &lt;&lt; a &lt;&lt; endl;<br><br>    <span class="hljs-comment">/* 此处的输出应该是 10，因为 zhengxing 是 int 的别名，所以 zhengxing a = 10; 就相当于 int a = 10;。</span><br><span class="hljs-comment">     * typedef 语句的一般形式是：typedef type newname;，其中 type 是现有的数据类型，newname 是新的数据类型名。</span><br><span class="hljs-comment">     */</span><br><br><br>    <span class="hljs-comment">//3.枚举类型</span><br>    <span class="hljs-keyword">enum</span> <span class="hljs-title class_">color</span> &#123; red, green, blue &#125; c;<br>    c = blue;<br>    cout &lt;&lt; c &lt;&lt; endl;<br><br>    <span class="hljs-comment">/* 此处的输出应该是 2，因为枚举类型的值是从 0 开始的，所以 red 是 0，green 是 1，blue 是 2。</span><br><span class="hljs-comment">     * 枚举类型是一种用户自定义的数据类型，用于定义变量，以表示程序中只能赋予某些离散整数值的变量。</span><br><span class="hljs-comment">     * 枚举类型的一般形式是：enum enum-name &#123; list of names &#125; var-list;，其中 enum-name 是枚举类型的名称，list of names 是枚举类型的值，var-list 是一个或多个枚举变量。</span><br><span class="hljs-comment">     */</span><br><br>    <span class="hljs-comment">//4.类型转换</span><br>    <span class="hljs-type">int</span> i = <span class="hljs-number">10</span>;<br>    <span class="hljs-type">double</span> d = <span class="hljs-number">3.14</span>;<br>    cout &lt;&lt; (<span class="hljs-type">double</span>)i &lt;&lt; endl;<br>    cout &lt;&lt; (<span class="hljs-type">int</span>)d &lt;&lt; endl;<br><br>    <span class="hljs-comment">/* 此处的输出应该是 10 和 3，因为 (double)i 将整数 i 转换为浮点数，(int)d 将浮点数 d 转换为整数。</span><br><span class="hljs-comment">     * 类型转换是将一个数据类型的值转换为另一个数据类型的值，C++ 中有四种类型转换方式：</span><br><span class="hljs-comment">     * 1. static_cast&lt;type&gt;(expression)：用于基本数据类型之间的转换，如 int 转 double，double 转 int。</span><br><span class="hljs-comment">     * 2. dynamic_cast&lt;type&gt;(expression)：用于将基类指针转换为派生类指针。</span><br><span class="hljs-comment">     * 3. const_cast&lt;type&gt;(expression)：用于去除表达式的 const 属性。</span><br><span class="hljs-comment">     * 4. reinterpret_cast&lt;type&gt;(expression)：用于将一个指针转换为另一个类型的指针。</span><br><span class="hljs-comment">     */</span><br><br>    <span class="hljs-comment">//4.1 静态转换</span><br>    <span class="hljs-type">int</span> a1 = <span class="hljs-number">10</span>;<br>    <span class="hljs-type">double</span> b1 = <span class="hljs-built_in">static_cast</span>&lt;<span class="hljs-type">double</span>&gt;(a1);<br>    cout &lt;&lt; b1 &lt;&lt; endl;<br><br>    <span class="hljs-comment">//4.2 动态转换</span><br>    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Base</span> &#123;<br>    <span class="hljs-keyword">public</span>:<br>        <span class="hljs-function"><span class="hljs-keyword">virtual</span> <span class="hljs-type">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span> </span>&#123;<br>            cout &lt;&lt; <span class="hljs-string">&quot;Base&quot;</span> &lt;&lt; endl;<br>        &#125;<br><br>    &#125;;<br><br>    <span class="hljs-keyword">class</span> <span class="hljs-title class_">Derived</span> : <span class="hljs-keyword">public</span> Base &#123;<br>    <span class="hljs-keyword">public</span>:<br>        <span class="hljs-function"><span class="hljs-type">void</span> <span class="hljs-title">print</span><span class="hljs-params">()</span> </span>&#123;<br>            cout &lt;&lt; <span class="hljs-string">&quot;Derived&quot;</span> &lt;&lt; endl;<br>        &#125;<br>    &#125;;<br>    Base *b = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Derived</span>();<br>    Derived *d1 = <span class="hljs-built_in">dynamic_cast</span>&lt;Derived *&gt;(b);<br>    d1-&gt;<span class="hljs-built_in">print</span>();<br><br>    <span class="hljs-comment">//4.3 常量转换</span><br>    <span class="hljs-type">const</span> <span class="hljs-type">int</span> b2 = <span class="hljs-number">10</span>;<br>    <span class="hljs-type">int</span>&amp; r = <span class="hljs-built_in">const_cast</span>&lt;<span class="hljs-type">int</span>&amp;&gt;(b2); <span class="hljs-comment">// 常量转换，将const int转换为int</span><br>    cout &lt;&lt; r &lt;&lt; endl;<br><br>    <span class="hljs-comment">//4.4 重新解释转换</span><br>    <span class="hljs-type">int</span> a3 = <span class="hljs-number">10</span>;<br>    <span class="hljs-type">int</span> *p = &amp;a3;<br>    <span class="hljs-type">double</span> *dp = <span class="hljs-built_in">reinterpret_cast</span>&lt;<span class="hljs-type">double</span> *&gt;(p); <span class="hljs-comment">// 重新解释转换，将int指针转换为double指针</span><br>    cout &lt;&lt; *dp &lt;&lt; endl;<br><br>    <span class="hljs-comment">//5.define</span><br>    <span class="hljs-meta">#<span class="hljs-keyword">define</span> PI 3.14159</span><br>    cout &lt;&lt; PI*<span class="hljs-number">2</span>*<span class="hljs-number">2</span> &lt;&lt; endl;<br><br>    <span class="hljs-comment">//6.const</span><br>    <span class="hljs-type">const</span> <span class="hljs-type">int</span> a4 = <span class="hljs-number">10</span>;<br>    <span class="hljs-comment">//a4 = 20; //这里会报错，因为 a4 是一个常量，不能被修改。</span><br>    cout &lt;&lt; a4 &lt;&lt; endl;<br><br>    <span class="hljs-comment">//7.引用</span><br>    <span class="hljs-type">int</span> a5 = <span class="hljs-number">10</span>;<br>    <span class="hljs-type">int</span> &amp;b5 = a5;<br>    b5 = <span class="hljs-number">20</span>;<br>    cout &lt;&lt; a5 &lt;&lt; endl;<br><br>    <span class="hljs-comment">//8.指针</span><br>    <span class="hljs-type">int</span> a6 = <span class="hljs-number">10</span>;<br>    <span class="hljs-type">int</span> *p1 = &amp;a6;<br>    cout &lt;&lt; *p1 &lt;&lt; endl;<br><br>    <span class="hljs-comment">//9.循环</span><br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">10</span>; i++) &#123;<br>        cout &lt;&lt; i &lt;&lt; endl;<br>    &#125;<br><br>    <span class="hljs-comment">//10.判断</span><br>    <span class="hljs-type">int</span> a7 = <span class="hljs-number">10</span>;<br>    <span class="hljs-keyword">if</span> (a7 &gt; <span class="hljs-number">5</span>) &#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;a7 &gt; 5&quot;</span> &lt;&lt; endl;<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        cout &lt;&lt; <span class="hljs-string">&quot;a7 &lt;= 5&quot;</span> &lt;&lt; endl;<br>    &#125;<br><br>    <span class="hljs-comment">//11.运算符</span><br>    <span class="hljs-type">int</span> a8 = <span class="hljs-number">10</span>;<br>    <span class="hljs-type">int</span> b8 = <span class="hljs-number">20</span>;<br>    cout &lt;&lt; a8 + b8 &lt;&lt; endl;<br>    cout &lt;&lt; a8 - b8 &lt;&lt; endl;<br>    cout &lt;&lt; a8 * b8 &lt;&lt; endl;<br>    cout &lt;&lt; a8 / b8 &lt;&lt; endl;<br>    cout &lt;&lt; a8 % b8 &lt;&lt; endl;<br><br>    <span class="hljs-comment">//12.数组</span><br>    <span class="hljs-type">int</span> arr[<span class="hljs-number">5</span>] = &#123;<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">4</span>, <span class="hljs-number">5</span>&#125;;<br>    <span class="hljs-keyword">for</span> (<span class="hljs-type">int</span> i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">5</span>; i++) &#123;<br>        cout &lt;&lt; arr[i] &lt;&lt; endl;<br>    &#125;<br><br>    <span class="hljs-comment">//13.函数</span><br>    <span class="hljs-comment">//这里的函数在main外面，这里就在这个main的开头，如果在main的后面，就需要在main的前面声明一下。</span><br>    cout &lt;&lt; <span class="hljs-built_in">add</span>(<span class="hljs-number">1</span>, <span class="hljs-number">2</span>) &lt;&lt; endl;<br><br>    <span class="hljs-comment">//14.结构体</span><br>    <span class="hljs-keyword">struct</span> <span class="hljs-title class_">Student</span> &#123;<br>        string name;<br>        <span class="hljs-type">int</span> age;<br>    &#125;;<br>    Student s;<br>    s.name = <span class="hljs-string">&quot;Tom&quot;</span>;<br>    s.age = <span class="hljs-number">18</span>;<br>    cout &lt;&lt; s.name &lt;&lt; <span class="hljs-string">&quot; &quot;</span> &lt;&lt; s.age &lt;&lt; endl;<br><br>    <span class="hljs-comment">//15.类</span><br>    <span class="hljs-comment">//这里的类在main外面，这里就在这个main的开头。</span><br>    Person person;<br>    person.name = <span class="hljs-string">&quot;Tom&quot;</span>;<br>    person.age = <span class="hljs-number">18</span>;<br>    person.<span class="hljs-built_in">say</span>();<br>    <br>    <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<span class="hljs-comment">//终止 main( )函数，并向调用进程返回值 0。</span><br>&#125;<br></code></pre></td></tr></table></figure>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/C/" class="print-no-link">#C++</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>Chapter 1 基于C语言的C++</div>
+      <div>https://lammy.top/2024/07/05/C++/Chapter 2 开始学习 C++/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>Lammy</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2024年7月5日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2024/06/28/hello-world/" title="Hello Hexo!">
+                        <span class="hidden-mobile">Hello Hexo!</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <font style="font-size:14px"><a href="https://icp.gov.moe/?keyword=20240720" target="_blank" data-pjax-state=""><img alt="Static Badge" src="https://img.shields.io/badge/%E8%90%8CICP%E5%A4%87-20240720%E5%8F%B7-%23EA4AAA" srcset="/img/loading.gif" lazyload></a></font> <img alt="Static Badge" src="https://img.shields.io/badge/CDN-Cloudflare-%23F38020?logo=Cloudflare" srcset="/img/loading.gif" lazyload> <img alt="Static Badge" src="https://img.shields.io/badge/Domain-Aliyun-%23FF6A00?logo=alibabacloud" srcset="/img/loading.gif" lazyload> <img alt="Static Badge" src="https://img.shields.io/badge/Host-Github Page-%232088FF?logo=github" srcset="/img/loading.gif" lazyload> <img alt="Static Badge" src="https://img.shields.io/badge/Frame-Hexo-%230E83CD?style=flat&logo=hexo" srcset="/img/loading.gif" lazyload> <img alt="Static Badge" src="https://img.shields.io/badge/Theme-Fluid-%2321C25E?style=flat&logo=penpot" srcset="/img/loading.gif" lazyload>
+
+
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4.12.2/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  
+      <script>
+        if (!window.MathJax) {
+          window.MathJax = {
+            tex    : {
+              inlineMath: { '[+]': [['$', '$']] }
+            },
+            loader : {
+              
+            },
+            options: {
+              renderActions: {
+                insertedScript: [200, () => {
+                  document.querySelectorAll('mjx-container').forEach(node => {
+                    let target = node.parentNode;
+                    if (target.nodeName.toLowerCase() === 'li') {
+                      target.parentNode.classList.add('has-jax');
+                    }
+                  });
+                }, '', false]
+              }
+            }
+          };
+        } else {
+          MathJax.startup.document.state(0);
+          MathJax.texReset();
+          MathJax.typeset();
+          MathJax.typesetPromise();
+        }
+
+        Fluid.events.registerRefreshCallback(function() {
+          if ('MathJax' in window && MathJax.startup.document && typeof MathJax.startup.document.state === 'function') {
+            MathJax.startup.document.state(0);
+            MathJax.texReset();
+            MathJax.typeset();
+            MathJax.typesetPromise();
+          }
+        });
+      </script>
+    
+
+  <script  src="https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
