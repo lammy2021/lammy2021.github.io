@@ -173,6 +173,13 @@
 
   
   <url>
+    <loc>https://lammy.top/tags/C/</loc>
+    <lastmod>2024-07-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://lammy.top/tags/Java/</loc>
     <lastmod>2024-07-11</lastmod>
     <changefreq>weekly</changefreq>
@@ -181,13 +188,6 @@
   
   <url>
     <loc>https://lammy.top/tags/Debug/</loc>
-    <lastmod>2024-07-11</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://lammy.top/tags/C/</loc>
     <lastmod>2024-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -217,14 +217,14 @@
 
   
   <url>
-    <loc>https://lammy.top/categories/Java/</loc>
+    <loc>https://lammy.top/categories/C/</loc>
     <lastmod>2024-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://lammy.top/categories/C/</loc>
+    <loc>https://lammy.top/categories/Java/</loc>
     <lastmod>2024-07-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
