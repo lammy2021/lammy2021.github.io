@@ -1,616 +1,993 @@
+
+
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="zh-CN" data-default-color-scheme=light>
+
+
+
 <head>
   <meta charset="UTF-8">
-
-
-
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-<meta http-equiv="X-UA-Compatible" content="ie=edge">
-
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.ico">
+  <link rel="icon" href="/img/myfavicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
   <meta name="author" content="Lammy">
+  <meta name="keywords" content="">
+  
+    <meta property="og:type" content="website">
+<meta property="og:title" content="MENGYUN&#39;s Blog">
+<meta property="og:url" content="https://lammy.top/index.html">
+<meta property="og:site_name" content="MENGYUN&#39;s Blog">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="Lammy">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>MENGYUN&#39;s Blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
 
 
 
 
-<title>MENGYUN&#39;s Blog</title>
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
 
 
 
-<link rel="icon" href="/favicon.png">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
 
 
 
-<link rel="stylesheet" href="/css/main.css">
 
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lammy.top","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"gtag":null},"search_path":"/local-search.xml","include_content_in_search":true};
 
-<link rel="stylesheet" href="/lib/nprogress/nprogress.css">
-
-
-
-<script src="/lib/jquery.min.js"></script>
-
-
-<script src="/lib/iconify-icon.min.js"></script>
-
-
-<script src="https://cdn.tailwindcss.com?plugins=typography"></script>
-<script>
-  tailwind.config = {
-    darkMode: "class",
-  };
-</script>
-
-
-<script src="/lib/nprogress/nprogress.js"></script>
-
-<script>
-  $(document).ready(() => {
-    NProgress.configure({
-      showSpinner: false,
-    });
-    NProgress.start();
-    $("#nprogress .bar").css({
-      background: "#de7441",
-    });
-    $("#nprogress .peg").css({
-      "box-shadow": "0 0 2px #de7441, 0 0 4px #de7441",
-    });
-    $("#nprogress .spinner-icon").css({
-      "border-top-color": "#de7441",
-      "border-left-color": "#de7441",
-    });
-    setTimeout(function () {
-      NProgress.done();
-      $(".fade").removeClass("out");
-    }, 800);
-  });
-</script>
-
-<script>
-  (function () {
-    const prefersDark =
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const setting = localStorage.getItem("hexo-color-scheme") || "auto";
-    if (setting === "dark" || (prefersDark && setting !== "light"))
-      document.documentElement.classList.toggle("dark", true);
-    let isDark = document.documentElement.classList.contains("dark");
-  })();
-
-  $(document).ready(function () {
-    // init icon
-    const prefersDark =
-      window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches;
-    const isDark = document.documentElement.classList.contains("dark");
-    $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
-
-    function toggleGiscusTheme() {
-      const isDark = document.documentElement.classList.contains("dark");
-      const giscusFrame = document.querySelector("iframe.giscus-frame");
-      if (giscusFrame) {
-        giscusFrame.contentWindow.postMessage(
-          {
-            giscus: {
-              setConfig: {
-                theme: isDark ? "dark" : "light",
-              },
-            },
-          },
-          "https://giscus.app"
-        );
-      }
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
     }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
 
 
-    // toggle dark mode
-    function toggleDark() {
-      let isDark = document.documentElement.classList.contains("dark");
-      const setting = localStorage.getItem("hexo-color-scheme") || "auto";
-      isDark = !isDark;
-      document.documentElement.classList.toggle("dark", isDark);
-      $("#theme-icon").attr("icon", isDark ? "ri:moon-line" : "ri:sun-line");
-      if (prefersDark === isDark) {
-        localStorage.setItem("hexo-color-scheme", "auto");
-      } else {
-        localStorage.setItem("hexo-color-scheme", isDark ? "dark" : "light");
-      }
-      toggleGiscusTheme();
-    }
-    $("#toggle-dark").click(toggleDark);
-
-    // listen dark mode change
-    window
-      .matchMedia("(prefers-color-scheme: dark)")
-      .addEventListener("change", (e) => {
-        const setting = localStorage.getItem("hexo-color-scheme") || "auto";
-        if (setting === "auto") {
-          document.documentElement.classList.toggle("dark", e.matches);
-          $("#theme-icon").attr(
-            "icon",
-            e.matches ? "ri:moon-line" : "ri:sun-line"
-          );
-          toggleGiscusTheme();
-        }
-      });
-  });
-</script>
-
-
-
-
+  
 <meta name="generator" content="Hexo 7.2.0"></head>
-<body class="font-sans bg-white dark:bg-zinc-900 text-gray-700 dark:text-gray-200 relative">
-  <header class="fixed w-full px-5 py-1 z-10 backdrop-blur-xl backdrop-saturate-150 border-b border-black/5">
-  <div class="max-auto">
-    <nav class="flex items-center text-base">
-      <a href="/" class="group">
-        <h2 class="font-medium tracking-tighterp text-l p-2">
-          <img class="w-5 mr-2 inline-block transition-transform group-hover:rotate-[30deg]" id="logo" src="/images/logo.svg" alt="MENGYUN's Blog" />
-          MENGYUN&#39;s Blog
-        </h2>
-      </a>
-      <div id="header-title" class="opacity-0 md:ml-2 md:mt-[0.1rem] text-xs font-medium whitespace-nowrap overflow-hidden overflow-ellipsis">
-        
-      </div>
-      <div class="flex-1"></div>
-      <div class="flex items-center gap-3">
-        
-          <a class="hidden sm:flex" href="/archives">Posts</a>
-        
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 100vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>MENGYUN&#39;s Blog</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
         
           
-            <a class="w-5 h-5 hidden sm:flex" title="Github" target="_blank" rel="noopener" href="https://github.com/xbmlz">
-              <iconify-icon width="20" icon="ri:github-line"></iconify-icon>
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
             </a>
+          </li>
           
         
-        <a class="w-5 h-5 hidden sm:flex" title="Github" href="rss2.xml">
-          <iconify-icon width="20" icon="ri:rss-line"></iconify-icon>
-        </a>
-        <a class="w-5 h-5" title="toggle theme" id="toggle-dark">
-          <iconify-icon width="20" icon="" id="theme-icon"></iconify-icon>
-        </a>
-      </div>
-      <div class="flex items-center justify-center gap-3 ml-3 sm:hidden">
-        <span class="w-5 h-5" aria-hidden="true" role="img" id="open-menu">
-          <iconify-icon width="20" icon="carbon:menu" ></iconify-icon>
-        </span>
-        <span class="w-5 h-5 hidden" aria-hidden="true" role="img" id="close-menu">
-          <iconify-icon  width="20" icon="carbon:close" ></iconify-icon>
-        </span>
-      </div>
-    </nav>
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
   </div>
-</header>
-<div id="menu-panel" class="h-0 overflow-hidden sm:hidden fixed left-0 right-0 top-12 bottom-0 z-10">
-  <div id="menu-content" class="relative z-20 bg-white/80 px-6 sm:px-8 py-2 backdrop-blur-xl -translate-y-full transition-transform duration-300">
-    <ul class="nav flex flex-col sm:flex-row text-sm font-medium">
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('https://t.alcy.cc/fj') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="我欲穿花寻路，直入白云深处，浩气展虹霓。"></span>
+          
+        </div>
+
+        
+      </div>
+
       
-        <li class="nav-portfolio sm:mx-2 border-b sm:border-0 border-black/5 last:border-0 hover:text-main">
-          <a href="/archives" class="flex h-12 sm:h-auto items-center">Posts</a>
-        </li>
+        <div class="scroll-down-bar">
+          <i class="iconfont icon-arrowdown"></i>
+        </div>
       
-    </ul>
+    </div>
   </div>
-  <div class="mask bg-black/20 absolute inset-0"></div>
 </div>
 
-  <main class="pt-14">
-    <section class="px-6 max-w-prose mx-auto gap-12 grid grid-cols-1">
-  <div class="flex flex-col h-48 items-center justify-center">
-    <h1 class="site-title text-4xl leading-relaxed">
-      MENGYUN&#39;s Blog
-    </h1>
-    <p class="text-gray-500 mt-2">
-      
-    </p>
-  </div>
-  
-  
+</div>
+
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div id="board"
+          style="margin-top: 0">
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
     
     
-      <div class="relative pointer-events-none">
-        <span class="text-9xl opacity-10 absolute -left-11 -top-6 font-bold">2024</span>
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/07/11/%E7%AE%97%E6%B3%95/00x2%20%E6%95%B0%E7%BB%84%E5%BC%82%E6%88%96%E6%93%8D%E4%BD%9C/" target="_self">
+          <img src="https://imgapi.cn/bing.php" srcset="/img/loading.gif" lazyload alt="00x2 数组异或操作">
+        </a>
       </div>
     
-    <a style="--stagger:0" href="/2024/07/11/%E7%AE%97%E6%B3%95/00x2%20%E6%95%B0%E7%BB%84%E5%BC%82%E6%88%96%E6%93%8D%E4%BD%9C/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/07/11/%E7%AE%97%E6%B3%95/00x2%20%E6%95%B0%E7%BB%84%E5%BC%82%E6%88%96%E6%93%8D%E4%BD%9C/" target="_self">
           00x2 数组异或操作
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          7月 11
-          ·
-          1 min
-        </p>
-      </section>
-    </a>
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/07/11/%E7%AE%97%E6%B3%95/00x2%20%E6%95%B0%E7%BB%84%E5%BC%82%E6%88%96%E6%93%8D%E4%BD%9C/" target="_self">
+        <div>
+          1486.数组异或操作给你两个整数，n 和 start 。 数组 nums 定义为：nums[i] = start + 2*i（下标从 0 开始）且 n == nums.length 。 请返回 nums 中所有元素按位异或（XOR）后得到的结果。 示例 1： 1234输入：n = 5, start = 0输出：8解释：数组 nums 为 [0, 2, 4, 6, 8]，其中 (0 ^ 2 ^ 4
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-07-11 11:43" pubdate>
+              2024-07-11
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
   
     
+      <span class="category-chain">
+        
+  <a href="/categories/Algorithm/" class="category-chain-item">Algorithm</a>
+  
+  
+
+      </span>
     
-    <a style="--stagger:1" href="/2024/07/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%89%E7%BA%A7%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/00x1%20%E7%BD%91%E7%BB%9C%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E4%B8%8E%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Algorithm/">#Algorithm</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/07/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%89%E7%BA%A7%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/00x1%20%E7%BD%91%E7%BB%9C%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E4%B8%8E%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/" target="_self">
+          <img src="https://imgapi.cn/bing.php" srcset="/img/loading.gif" lazyload alt="00x1 网络系统结构与设计的基本原则">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/07/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%89%E7%BA%A7%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/00x1%20%E7%BD%91%E7%BB%9C%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E4%B8%8E%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/" target="_self">
           00x1 网络系统结构与设计的基本原则
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          7月 07
-          ·
-          7 min
-        </p>
-      </section>
-    </a>
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/07/07/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%89%E7%BA%A7%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/00x1%20%E7%BD%91%E7%BB%9C%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E4%B8%8E%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99/" target="_self">
+        <div>
+          网络接入技术大体可以分为 数字用户线（xDSL）接入xDSL是利用现有的电话网络实现网络接入，能够同时提供电话和网络接入服务。其中HDSL是对称（上行下行带宽一致）的，其他均为非对称（上行下行带宽不一致），且各技术的带宽是经常考察的内容。 ADSL–非对称（上行下行带宽不一致）数字用户线，利用电话线实现网络接入，能够同时提供电话和网络服务（即上网时电话并不占线，早期的拨号上网业务是上网时电话占线）
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-07-07 21:14" pubdate>
+              2024-07-07
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
   
     
+      <span class="category-chain">
+        
+  <a href="/categories/Computer-Certificate-Test/" class="category-chain-item">Computer-Certificate-Test</a>
+  
+  
+
+      </span>
     
-    <a style="--stagger:2" href="/2024/07/06/%E7%AE%97%E6%B3%95/00x1%20%E5%90%8C%E6%9E%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Computer-Certificate-Test/">#Computer-Certificate-Test</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/07/06/%E7%AE%97%E6%B3%95/00x1%20%E5%90%8C%E6%9E%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" target="_self">
+          <img src="https://imgapi.cn/bing.php" srcset="/img/loading.gif" lazyload alt="00x1 同构字符串">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/07/06/%E7%AE%97%E6%B3%95/00x1%20%E5%90%8C%E6%9E%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" target="_self">
           00x1 同构字符串
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          7月 06
-          ·
-          2 min
-        </p>
-      </section>
-    </a>
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/07/06/%E7%AE%97%E6%B3%95/00x1%20%E5%90%8C%E6%9E%84%E5%AD%97%E7%AC%A6%E4%B8%B2/" target="_self">
+        <div>
+          205. 同构字符串给定两个字符串 s 和 t ，判断它们是否是同构的。 如果 s 中的字符可以按某种映射关系替换得到 t ，那么这两个字符串是同构的。 每个出现的字符都应当映射到另一个字符，同时不改变字符的顺序。不同字符不能映射到同一个字符上，相同字符只能映射到同一个字符上，字符可以映射到自己本身。 示例 1: 12输入：s = &quot;egg&quot;, t = &quot;add&qu
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-07-06 09:26" pubdate>
+              2024-07-06
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
   
     
+      <span class="category-chain">
+        
+  <a href="/categories/Algorithm/" class="category-chain-item">Algorithm</a>
+  
+  
+
+      </span>
     
-    <a style="--stagger:3" href="/2024/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%89%E7%BA%A7%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%89%E7%BA%A7%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF2024%E5%B9%B49%E6%9C%88%E8%80%83%E8%AF%95%E8%80%83%E7%BA%B2/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Algorithm/">#Algorithm</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%89%E7%BA%A7%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%89%E7%BA%A7%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF2024%E5%B9%B49%E6%9C%88%E8%80%83%E8%AF%95%E8%80%83%E7%BA%B2/" target="_self">
+          <img src="https://imgapi.cn/bing.php" srcset="/img/loading.gif" lazyload alt="计算机三级网络技术2024年9月考试考纲">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%89%E7%BA%A7%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%89%E7%BA%A7%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF2024%E5%B9%B49%E6%9C%88%E8%80%83%E8%AF%95%E8%80%83%E7%BA%B2/" target="_self">
           计算机三级网络技术2024年9月考试考纲
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          7月 05
-          ·
-          2 min
-        </p>
-      </section>
-    </a>
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/07/05/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%89%E7%BA%A7%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%89%E7%BA%A7%E7%BD%91%E7%BB%9C%E6%8A%80%E6%9C%AF2024%E5%B9%B49%E6%9C%88%E8%80%83%E8%AF%95%E8%80%83%E7%BA%B2/" target="_self">
+        <div>
+          基本要求１． 了解大型网络系统规划、管理方法； ２． 具备中小型网络系统规划、设计的基本能力； ３． 掌握中小型网络系统组建、设备配置调试的基本技术； ４． 掌握企事业单位中小型网络系统现场维护与管理基本技术； ５． 了解网络技术的发展。 考试内容一、网络规划与设计１．网络需求分析。 ２．网络规划设计。 ３．网络设备及选型。 ４．网络综合布线方案设计。 ５．接入技术方案设计。 ６．IP地址规划与路
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-07-05 22:34" pubdate>
+              2024-07-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
   
     
+      <span class="category-chain">
+        
+  <a href="/categories/Computer-Certificate-Test/" class="category-chain-item">Computer-Certificate-Test</a>
+  
+  
+
+      </span>
     
-    <a style="--stagger:4" href="/2024/07/05/C++/Chapter%202%20%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%20C++/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Computer-Certificate-Test/">#Computer-Certificate-Test</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/07/05/C++/Chapter%202%20%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%20C++/" target="_self">
+          <img src="https://imgapi.cn/bing.php" srcset="/img/loading.gif" lazyload alt="Chapter 1 基于C语言的C++">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/07/05/C++/Chapter%202%20%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%20C++/" target="_self">
           Chapter 1 基于C语言的C++
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          7月 05
-          ·
-          6 min
-        </p>
-      </section>
-    </a>
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/07/05/C++/Chapter%202%20%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%20C++/" target="_self">
+        <div>
+          前言 玛卡巴卡，这个C++有很多一部分的内容是基于C语言的，先把C语言炒热先吧，这个也就输入和输出是不太一样的格式，其他的都是很像的写法，看看就明白了，喵~  与C语言相似的点的复习123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-07-05 21:31" pubdate>
+              2024-07-05
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
   
     
+      <span class="category-chain">
+        
+  <a href="/categories/C/" class="category-chain-item">C++</a>
+  
+  
+
+      </span>
     
-    <a style="--stagger:5" href="/2024/06/28/hello-world/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/C/">#C++</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/06/28/hello-world/" target="_self">
+          <img src="https://imgapi.cn/bing.php" srcset="/img/loading.gif" lazyload alt="Hello Hexo!">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/06/28/hello-world/" target="_self">
           Hello Hexo!
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          6月 28
-          ·
-          1 min
-        </p>
-      </section>
-    </a>
-  
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/06/28/hello-world/" target="_self">
+        <div>
+          是的，他又换了一个博客的托管的地方，挑来挑去都是回到了Hexo+Github的方式，这样子的话就可以保证我们的博客不会因为虚拟主机或者云服务商的关闭或者服务器故障而丢失，这样子不仅可以保护我们的重要数据，还能确保博客的稳定性。 虽然很多小伙伴会觉得这样子会导致我们的博客的访问速度降低，因为这个走的是Github Page的网络，确实，这个在国内访问的速度很不咋地，但是我们可以自建CDN进行加速我们
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-06-28 19:31" pubdate>
+              2024-06-28
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
     
     
-    <a style="--stagger:6" href="/2024/04/23/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E7%BB%A7%E6%89%BF%E3%80%81%E6%8A%BD%E8%B1%A1%E7%B1%BB%E3%80%81%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%9E%9A%E4%B8%BE/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/04/23/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E7%BB%A7%E6%89%BF%E3%80%81%E6%8A%BD%E8%B1%A1%E7%B1%BB%E3%80%81%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%9E%9A%E4%B8%BE/" target="_self">
+          <img src="https://imgapi.cn/bing.php" srcset="/img/loading.gif" lazyload alt="Java课堂笔记 第八章 继承、抽象类、接口和枚举">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/04/23/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E7%BB%A7%E6%89%BF%E3%80%81%E6%8A%BD%E8%B1%A1%E7%B1%BB%E3%80%81%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%9E%9A%E4%B8%BE/" target="_self">
           Java课堂笔记 第八章 继承、抽象类、接口和枚举
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          4月 23
-          ·
-          31 min
-        </p>
-      </section>
-    </a>
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/04/23/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E5%85%AB%E7%AB%A0%20%E7%BB%A7%E6%89%BF%E3%80%81%E6%8A%BD%E8%B1%A1%E7%B1%BB%E3%80%81%E6%8E%A5%E5%8F%A3%E5%92%8C%E6%9E%9A%E4%B8%BE/" target="_self">
+        <div>
+          继承类的继承在Java中，类的继承是一种面向对象编程的重要概念，它允许一个类（称为子类或派生类）基于另一个类（称为父类或基类）来创建。继承允许子类继承父类的属性和方法，并且可以在此基础上添加新的属性和方法，或者修改现有的行为。 在Java中，继承使用关键字extends来实现。例如，如果有一个Vehicle类作为父类，可以创建一个Car类作为子类，Car类可以继承Vehicle类的属性和方法。示例
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-23 15:36" pubdate>
+              2024-04-23
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
   
     
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
     
-    <a style="--stagger:7" href="/2024/04/16/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java/">#Java</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/04/16/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" target="_self">
+          <img src="https://imgapi.cn/bing.php" srcset="/img/loading.gif" lazyload alt="Java课堂笔记 第六章 类与对象">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/04/16/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" target="_self">
           Java课堂笔记 第六章 类与对象
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          4月 16
-          ·
-          17 min
-        </p>
-      </section>
-    </a>
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/04/16/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E5%85%AD%E7%AB%A0%20%E7%B1%BB%E4%B8%8E%E5%AF%B9%E8%B1%A1/" target="_self">
+        <div>
+          类概念Java中的类是面向对象编程的基本构建块，它是一种抽象数据类型，用于描述具有相同属性和行为的对象集合。类由字段（属性）和方法（行为）组成，可以用来创建对象（实例化）以及定义对象的行为和状态。通过封装、继承和多态等特性，类提供了一种结构化的方式来组织和管理代码，使得代码更易于理解、扩展和维护。 定义类12345678910111213141516171819202122232425262728
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-04-16 14:56" pubdate>
+              2024-04-16
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
   
     
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
     
-    <a style="--stagger:8" href="/2024/03/27/Java/Java-Debug%20%E8%AF%BB%E5%8F%96%E4%B8%80%E8%A1%8C%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%8E%E9%80%90%E8%A1%8C%E8%AF%BB%E5%8F%96/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java/">#Java</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/03/27/Java/Java-Debug%20%E8%AF%BB%E5%8F%96%E4%B8%80%E8%A1%8C%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%8E%E9%80%90%E8%A1%8C%E8%AF%BB%E5%8F%96/" target="_self">
+          <img src="https://imgapi.cn/bing.php" srcset="/img/loading.gif" lazyload alt="Java-Debug 读取一行的数据与逐行读取">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/03/27/Java/Java-Debug%20%E8%AF%BB%E5%8F%96%E4%B8%80%E8%A1%8C%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%8E%E9%80%90%E8%A1%8C%E8%AF%BB%E5%8F%96/" target="_self">
           Java-Debug 读取一行的数据与逐行读取
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          3月 27
-          ·
-          2 min
-        </p>
-      </section>
-    </a>
+        </a>
+      </h2>
+
+      
+      <a class="index-excerpt " href="/2024/03/27/Java/Java-Debug%20%E8%AF%BB%E5%8F%96%E4%B8%80%E8%A1%8C%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%8E%E9%80%90%E8%A1%8C%E8%AF%BB%E5%8F%96/" target="_self">
+        <div>
+          重现代码12345678910111213141516171819202122232425262728293031import java.io.*;public class Main &#123;    public static void main(String[] args) throws IOException &#123;        BufferedReader buf = new B
+        </div>
+      </a>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-27 19:50" pubdate>
+              2024-03-27
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
+  
   
     
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
+
+      </span>
     
-    <a style="--stagger:9" href="/2024/03/19/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
+  
+</span>
+
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java/">#Java</a>
+            
+              <a href="/tags/Debug/">#Debug</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2024/03/19/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_self">
+          <img src="https://imgapi.cn/bing.php" srcset="/img/loading.gif" lazyload alt="Java课堂笔记 第五章 字符串与正则表达式">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h2 class="index-header">
+        
+        <a href="/2024/03/19/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_self">
           Java课堂笔记 第五章 字符串与正则表达式
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          3月 19
-          ·
-          4 min
-        </p>
-      </section>
-    </a>
-  
-    
-    
-    <a style="--stagger:10" href="/2024/03/18/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E4%BA%94%E7%AB%A0%20foreach%E8%AF%AD%E5%8F%A5%E4%B8%8E%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
-          Java课堂笔记 第五章 foreach语句与多维数组
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          3月 18
-          ·
-          2 min
-        </p>
-      </section>
-    </a>
-  
-    
-    
-    <a style="--stagger:11" href="/2024/03/12/Linux/VPS%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%8F%8A%E5%B7%A5%E5%85%B7%E5%A4%87%E5%BF%98%E5%BD%95/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
-          VPS常用命令及工具备忘录
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          3月 12
-          ·
-          2 min
-        </p>
-      </section>
-    </a>
-  
-    
-    
-    <a style="--stagger:12" href="/2024/03/12/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E4%B8%80%E7%BB%B4%E6%95%B0%E7%BB%84/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
-          Java课堂笔记 第五章 一维数组
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          3月 12
-          ·
-          1 min
-        </p>
-      </section>
-    </a>
-  
-    
-    
-    <a style="--stagger:13" href="/2024/03/11/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E5%9B%9B%E7%AB%A0%20If%E8%AF%AD%E5%8F%A5/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
-          Java课堂笔记 第四章 If语句
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          3月 11
-          ·
-          1 min
-        </p>
-      </section>
-    </a>
-  
-    
-    
-    <a style="--stagger:14" href="/2024/03/11/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
-          Java课堂笔记 第三章 数据类型
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          3月 11
-          ·
-          1 min
-        </p>
-      </section>
-    </a>
-  
-    
-    
-    <a style="--stagger:15" href="/2024/03/09/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E4%B8%89%E7%AB%A0%20%E7%8E%AF%E5%A2%83%E7%9A%84%E9%85%8D%E7%BD%AE%E4%BB%A5%E5%8F%8A%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%A8%8B%E5%BA%8F/" data-animate>
-      <header>
-        <h2 class="font-bold text-xl">
-          Java课堂笔记 第三章 环境的配置以及第一个程序
-        </h2>
-      </header>
-      <section class="text-gray-400 my-2 text-sm time">
-        <p class="line-clamp-4">
-          
-        </p>
-        <p class="line-clamp-4">
-          3月 09
-          ·
-          4 min
-        </p>
-      </section>
-    </a>
-  
-</section>
+        </a>
+      </h2>
 
+      
+      <a class="index-excerpt " href="/2024/03/19/Java/Java%E8%AF%BE%E5%A0%82%E7%AC%94%E8%AE%B0%20%E7%AC%AC%E4%BA%94%E7%AB%A0%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%8E%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8F/" target="_self">
+        <div>
+          String型字符串定义方式123456789//二段式String str0;str0 = new String(&quot;Hello, World!&quot;);// 使用字符串字面值定义一个String变量String str1 = &quot;Hello, World!&quot;;// 使用String构造函数定义一个String变量String str2 = new String(
+        </div>
+      </a>
 
-  </main>
-  <footer class="flex flex-col h-40 items-center justify-center text-gray-400 text-sm">
-  <!-- busuanzi -->
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2024-03-19 16:05" pubdate>
+              2024-03-19
+            </time>
+          </div>
+        
+        
+          <div class="post-meta mr-3 d-flex align-items-center">
+            <i class="iconfont icon-category"></i>
+            
+
+<span class="category-chains">
   
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<!-- Busuanzi Analytics -->
-<div class="flex items-center gap-2">
-  <span>Visitors</span>
-  <span id="busuanzi_value_site_uv"></span>
-  <span>Page Views</span>
-  <span id="busuanzi_value_site_pv"></span>
-</div>
-<!-- End Busuanzi Analytics -->
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/Java/" class="category-chain-item">Java</a>
+  
+  
 
+      </span>
+    
+  
+</span>
 
-  <!-- copyright -->
-  <div class="flex items-center gap-2">
-    <a target="_blank" href="https://creativecommons.org/licenses/by-nc-sa/4.0/" style="color: inherit;">CC BY-NC-SA 4.0</a>
-    <span>© 2022</span>
-    <iconify-icon width="18" icon="emojione-monotone:maple-leaf" ></iconify-icon>
-    <a href="https://github.com/xbmlz" target="_blank" rel="noopener noreferrer">xbmlz</a>
-  </div>
-  <!-- powered by -->
-  <div class="flex items-center gap-2">
-    <span>Powered by</span>
-    <a href="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a>
-    <span>&</span>
-    <a href="https://github.com/xbmlz/hexo-theme-maple" target="_blank" rel="noopener noreferrer">Maple</a>
+          </div>
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Java/">#Java</a>
+            
+          </div>
+        
+      </div>
+    </article>
   </div>
 
-</footer>
 
-  <div class="back-to-top box-border fixed right-6 z-1024 -bottom-20 rounded py-1 px-1 bg-slate-900 opacity-60 text-white cursor-pointer text-center dark:bg-slate-600">
-    <span class="flex justify-center items-center text-sm">
-      <iconify-icon width="18" icon="ion:arrow-up-c" id="go-top"></iconify-icon>
-      <span id="scrollpercent"><span>0</span> %</span>
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/#board">2</a><a class="extend next" rel="next" href="/page/2/#board"><i class="iconfont icon-arrowright"></i></a>
     </span>
-  </div>
-  
-<script src="/js/main.js"></script>
+  </nav>
 
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <font style="font-size:14px"><a href="https://icp.gov.moe/?keyword=20240720" target="_blank" data-pjax-state=""><img alt="Static Badge" src="https://img.shields.io/badge/%E8%90%8CICP%E5%A4%87-20240720%E5%8F%B7-%23EA4AAA" srcset="/img/loading.gif" lazyload></a></font> <img alt="Static Badge" src="https://img.shields.io/badge/CDN-Cloudflare-%23F38020?logo=Cloudflare" srcset="/img/loading.gif" lazyload> <img alt="Static Badge" src="https://img.shields.io/badge/Domain-Aliyun-%23FF6A00?logo=alibabacloud" srcset="/img/loading.gif" lazyload> <img alt="Static Badge" src="https://img.shields.io/badge/Host-Github Page-%232088FF?logo=github" srcset="/img/loading.gif" lazyload> <img alt="Static Badge" src="https://img.shields.io/badge/Frame-Hexo-%230E83CD?style=flat&logo=hexo" srcset="/img/loading.gif" lazyload> <img alt="Static Badge" src="https://img.shields.io/badge/Theme-Fluid-%2321C25E?style=flat&logo=penpot" srcset="/img/loading.gif" lazyload>
+
+
+    </div>
+  
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
 
   <script>
-    $(document).ready(function () {
-      const mapleCount = "10";
-      const speed = "0.5";
-      const mapleEl = document.getElementById("maple");
-      const maples = Array.from({ length: mapleCount }).map(() => {
-        const maple = document.createElement("div");
-        const scale = Math.random() * 0.5 + 0.5;
-        const offset = Math.random() * 2 - 1;
-        const x = Math.random() * mapleEl.clientWidth;
-        const y = -Math.random() * mapleEl.clientHeight;
-        const duration = 10 / speed;
-        const delay = -duration;
-        maple.className = "maple";
-        maple.style.width = `${24 * scale}px`;
-        maple.style.height = `${24 * scale}px`;
-        maple.style.left = `${x}px`;
-        maple.style.top = `${y}px`;
-        maple.style.setProperty("--maple-fall-offset", offset);
-        maple.style.setProperty("--maple-fall-height", `${Math.abs(y) + mapleEl.clientHeight}px`);
-        maple.style.animation = `fall ${duration}s linear infinite`;
-        maple.style.animationDelay = `${delay}s`;
-        mapleEl.appendChild(maple)
-        return maple
-      })
-    });
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
   </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
   
 
 
-  <div class="fixed top-0 bottom-0 left-0 right-0 pointer-events-none print:hidden" id="maple"></div>
-</body>
 
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
 </html>
