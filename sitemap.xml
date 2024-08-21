@@ -182,21 +182,7 @@
 
   
   <url>
-    <loc>https://lammy.top/tags/Command/</loc>
-    <lastmod>2024-08-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://lammy.top/tags/C/</loc>
-    <lastmod>2024-08-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://lammy.top/tags/Algorithm/</loc>
     <lastmod>2024-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -217,6 +203,20 @@
   </url>
   
   <url>
+    <loc>https://lammy.top/tags/Command/</loc>
+    <lastmod>2024-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lammy.top/tags/Algorithm/</loc>
+    <lastmod>2024-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://lammy.top/tags/Computer-Certificate-Test/</loc>
     <lastmod>2024-08-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -226,13 +226,6 @@
 
   
   <url>
-    <loc>https://lammy.top/categories/Linux/</loc>
-    <lastmod>2024-08-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://lammy.top/categories/C/</loc>
     <lastmod>2024-08-21</lastmod>
     <changefreq>weekly</changefreq>
@@ -240,14 +233,21 @@
   </url>
   
   <url>
-    <loc>https://lammy.top/categories/Algorithm/</loc>
+    <loc>https://lammy.top/categories/Java/</loc>
     <lastmod>2024-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://lammy.top/categories/Java/</loc>
+    <loc>https://lammy.top/categories/Linux/</loc>
+    <lastmod>2024-08-21</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://lammy.top/categories/Algorithm/</loc>
     <lastmod>2024-08-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
